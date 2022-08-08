@@ -41,4 +41,3 @@ fun Context.createDialod(block: MaterialAlertDialogBuilder.() -> Unit = {}) : Al
 //        setCancelable(true)
 //    }
 //}
-
