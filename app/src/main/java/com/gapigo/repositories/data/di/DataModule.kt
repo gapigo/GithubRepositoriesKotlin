@@ -1,6 +1,8 @@
 package com.gapigo.repositories.data.di
 
 import android.util.Log
+import com.gapigo.repositories.data.repositories.RepoRepository
+import com.gapigo.repositories.data.repositories.RepoRepositoryImpl
 import com.gapigo.repositories.data.services.GitHubService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -15,7 +17,7 @@ object DataModule {
 
     private const val OK_HTTP = "OkHttp"
     fun load() {
-        loadKoinModules(networkModules())
+        loadKoinModules(networkModules() + repositoriesModule())
     }
     private fun networkModules(): Module {
         return module {
@@ -38,6 +40,12 @@ object DataModule {
             single {
                 createService<GitHubService>(get(), get())
             }
+        }
+    }
+
+    private fun repositoriesModule(): Module {
+        return module {
+            single<RepoRepository> { RepoRepositoryImpl(get()) }
         }
     }
     private inline fun <reified T> createService(client: OkHttpClient, factory: GsonConverterFactory): T {

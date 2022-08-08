@@ -1,6 +1,6 @@
 package com.gapigo.repositories.data.services
 
-import retrofit2.Call
+import com.gapigo.repositories.data.model.Repo
 import retrofit2.http.GET
 import retrofit2.http.Path
 
