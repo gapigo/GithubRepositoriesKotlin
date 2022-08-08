@@ -54,7 +54,7 @@
             app:layout_constraintStart_toStartOf="@id/tv_repo_name"
             app:chipIcon="@drawable/ic_stars"
             app:chipIconTint="#FAFA82"
-            android:text=""
+            android:text="0"
             app:chipBackgroundColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="30dp" />
