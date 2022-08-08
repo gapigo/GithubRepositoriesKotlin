@@ -8,6 +8,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
+import com.gapigo.repositories.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 
@@ -30,14 +31,15 @@ fun Context.createDialod(block: MaterialAlertDialogBuilder.() -> Unit = {}) : Al
     return builder.create()
 }
 
-//fun Context.createProgressDialog(): AlertDialog {
-//    return createDialog {
-//        val padding = "16dp"
-//        val progressBar = ProgressBar(this@createProgressDialog)
-//        progressBar.setPadding(padding, padding, padding, padding)
-//        setView(progressBar)
-//
-//        setPositiveButton(null, null)
-//        setCancelable(true)
-//    }
-//}
+fun Context.createProgressDialog(): AlertDialog {
+    return createDialod {
+        val padding = this@createProgressDialog.resources.getDimensionPixelOffset(R.dimen.layout_paddin)
+        val progressBar = ProgressBar(this@createProgressDialog)
+        progressBar.setPadding(padding, padding, padding, padding)
+        setView(progressBar)
+
+        setPositiveButton(null, null)
+        setCancelable(true)
+    }
+}
+
